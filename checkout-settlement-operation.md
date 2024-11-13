@@ -48,7 +48,9 @@ flowchart TB;
 title:
 ---
 flowchart TB;
-    A[Calculate refund amount]-->B[Issue refund];
+    A-- Refund amount is greater than zero -->B[Issue refund];
+    A[Calculate refund amount]-- Refund amount is zero -->Y["Set settlement status to *settled*"];
+    Y-->H[Return 200];
     B-- Refund api return non 200 response -->D[Create transaction record]; 
     B-- Refund api return 200 response but status is not success -->D;
     B-- Refund api return 200 response and status is success -->D;
