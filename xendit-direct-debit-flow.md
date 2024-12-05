@@ -1,11 +1,12 @@
-# Checkout settlement operations (Maya)
+# Xendit Payment Flow
 ```mermaid
 ---
 title:
 ---
 flowchart TB;
-    A[Create Xendit Customer]-->B[Create Payment Method];
-    B-- Select payment method -->C[List Active Payment Methods];
-    C-- Hit Checkout button -->D[Create checkout record];
-    D-- Make payment -->[Issue Payment request];
+    A[PUT /api/v1/customer-profiles/:id/find-or-create-xendit-customer];
+    B[POST /api/v1/xendit/direct-debits];
+    C[GET /xendit/direct-debits];
+    C-- select payment method, then hit checkouBtn -->D[POST /checkouts];
+    D-->E[POST /xendit/transactions/make-payment];
 ```
