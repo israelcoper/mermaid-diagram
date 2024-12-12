@@ -21,7 +21,7 @@ flowchart TB;
     B1-- customer exist? -->C[GET /payments/v1/customers/:paymaya_customer_id];
     C-- customer !exist -->D0[Create customer];
     D0-->D1[POST /payments/v1/customers];
-    C-- customer exist? -->D2[List cards];
+    C-- customer exist -->D2[List cards];
     D2-->D3[GET /payments/v1/customers/:paymaya_customer_id/cards]
     E0[Create checkout record]-->E1[POST /checkouts];
     FO[Make payment]-->F1[POST /tokenized-transactions/make-payment];
