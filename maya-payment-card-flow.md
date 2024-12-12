@@ -16,15 +16,15 @@ flowchart TB;
     style H0 fill:#ee82ee
     style H3 fill:#ee82ee
     style H4 fill:#ee82ee
-    A0[Create payment token]-->A1[POST /payments/v1/payment-token];
-    B0[List cards]-->B1[GET /tokenized-transactions/cards];
+    A0["#1 Create payment token"]-->A1[POST /payments/v1/payment-token];
+    B0["#2 List cards"]-->B1[GET /tokenized-transactions/cards];
     B1-- customer exist? -->C[GET /payments/v1/customers/:paymaya_customer_id];
     C-- customer !exist -->D0[Create customer];
     D0-->D1[POST /payments/v1/customers];
     C-- customer exist -->D2[List cards];
     D2-->D3[GET /payments/v1/customers/:paymaya_customer_id/cards]
-    E0[Create checkout record]-->E1[POST /checkouts];
-    FO[Make payment]-->F1[POST /tokenized-transactions/make-payment];
+    E0["#3 Create checkout record"]-->E1[POST /checkouts];
+    FO["#4 Make payment"]-->F1[POST /tokenized-transactions/make-payment];
     F1-- customer exist? -->F2[GET /payments/v1/customers/:paymaya_customer_id];
     F2-- customer !exists -->G0[Create Customer];
     G0-->G1[POST /payments/v1/customers];
