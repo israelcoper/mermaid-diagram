@@ -24,4 +24,5 @@ flowchart TB;
     C-->E[POST /checkouts];
     E-->G[POST /maya/transactions/make-payment];
     G-->H[POST /payments/v1/customers/:maya_customer_id/cards/:card_token/payments];
+    H-->I["#4. Render verificationUrl"];
 ```
