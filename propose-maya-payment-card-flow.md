@@ -14,8 +14,9 @@ flowchart TB;
     style G fill:#3cb371
     style H fill:#ee82ee
     A["#1. Vault Card"]-->B[POST /maya/payment-cards];
-    B-->F1[POST /payments/v1/customers];
-    F1-->F2[POST /payments/v1/payment-tokens];
+    B-- customer !exist -->F1[POST /payments/v1/customers];
+    B-- customer exists -->F2[POST /payments/v1/payment-tokens];
+    F1-->F2;
     F2-->F3[POST /payments/v1/customers/:maya_customer_id/cards];
     X["#2. List Vaulted Cards"]-->Y[GET /maya/transactions/cards];
     Y-->Z[GET /payments/v1/customers/:maya_customer_id/cards];
