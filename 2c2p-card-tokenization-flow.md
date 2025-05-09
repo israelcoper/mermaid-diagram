@@ -1,4 +1,4 @@
-# 2C2P Card Tokenization Flow
+# 2C2P Card Tokenization Flow (Host own card input page)
 ```mermaid
 ---
 title:
