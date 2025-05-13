@@ -13,12 +13,12 @@ flowchart TB;
     style E fill:#3cb371
     style G fill:#3cb371
     style H fill:#ee82ee
-    A["#1. Vault Card"]-->B[POST /maya/payment-cards];
+    A["#1. Tokenize Card"]-->B[POST /maya/payment-cards];
     B-- customer !exist -->F1[POST /payments/v1/customers];
     B-- customer exists -->F2[POST /payments/v1/payment-tokens];
     F1-->F2;
     F2-->F3[POST /payments/v1/customers/:maya_customer_id/cards];
-    X["#2. List Vaulted Cards"]-->Y[GET /maya/payment-cards];
+    X["#2. List Tokenized Cards"]-->Y[GET /maya/payment-cards];
     Y-->Z[GET /payments/v1/customers/:maya_customer_id/cards];
     C["#3. Place Order"];
     C-->E[POST /checkouts];
