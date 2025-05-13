@@ -36,5 +36,5 @@ flowchart TB;
     H4-->H2;
     H0-- customer linked_to_card -->H2[Make payment];
     H2-->H3[POST /payments/v1/customers/:paymaya_customer_id/cards/:card_token_id/payments]
-    H3-->I["#4. Render verificationUrl"];
+    H3-->I[Render verificationUrl];
 ```
