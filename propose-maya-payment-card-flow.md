@@ -4,20 +4,20 @@
 title:
 ---
 flowchart TB;
-    style B fill:#3cb371
+    style B1 fill:#ee82ee
+    style B2 fill:#3cb371
     style F1 fill:#ee82ee
     style F2 fill:#ee82ee
-    style F3 fill:#ee82ee
     style Y fill:#3cb371
     style Z fill:#ee82ee
     style E fill:#3cb371
     style G fill:#3cb371
     style H fill:#ee82ee
-    A["#1. Tokenize Card"]-->B[POST /maya/payment-cards];
-    B-- customer !exist -->F1[POST /payments/v1/customers];
-    B-- customer exists -->F2[POST /payments/v1/payment-tokens];
+    A["#1. Tokenize Card"]-->B1[POST /payments/v1/payment-tokens];
+    B1-->B2[POST /maya/payment-cards];
+    B2-- customer !exist -->F1[POST /payments/v1/customers];
+    B2-- customer exists -->F2[POST /payments/v1/customers/:maya_customer_id/cards];
     F1-->F2;
-    F2-->F3[POST /payments/v1/customers/:maya_customer_id/cards];
     X["#2. List Tokenized Cards"]-->Y[GET /maya/payment-cards];
     Y-->Z[GET /payments/v1/customers/:maya_customer_id/cards];
     C["#3. Place Order"];
