@@ -18,12 +18,12 @@ flowchart TB;
     B2-- customer !exist -->F1[POST /payments/v1/customers];
     B2-- customer exists -->F2[POST /payments/v1/customers/:maya_customer_id/cards];
     F1-->F2;
-    F2-->F3[Render verificationUrl];
+    F2-->F3["Render verificationUrl (The URL that the payer needs to follow to complete 3DS verification.)"];
     X["#2. List Tokenized Cards"]-->Y[GET /maya/payment-cards];
     Y-->Z[GET /payments/v1/customers/:maya_customer_id/cards];
     C["#3. Place Order"];
     C-->E[POST /checkouts];
     E-->G[POST /maya/transactions/make-payment];
     G-->H[POST /payments/v1/customers/:maya_customer_id/cards/:card_token/payments];
-    H-->I[Render verificationUrl];
+    H-->I["Render verificationUrl (The URL that the payer needs to open in the browser to complete payment via 3DS authentication.)"];
 ```
