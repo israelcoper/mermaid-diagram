@@ -26,4 +26,5 @@ flowchart TB;
     E-->G[POST /maya/transactions/make-payment];
     G-->H[POST /payments/v1/customers/:maya_customer_id/cards/:card_token/payments];
     H-->I["Render verificationUrl (The URL that the payer needs to open in the browser to complete payment via 3DS authentication.)"];
+    I-->J["Source of truth: Webhook or Follow up worker"]
 ```
