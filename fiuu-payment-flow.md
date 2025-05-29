@@ -14,4 +14,5 @@ flowchart TB;
     C["#3. Payment"]-->H["POST pay.fiuu.com/RMS/API/Direct/1.4.0/index.php"];
     H-->I["Render RequestUrl (OTP) (Question: This OTP screen is always required?)"];
     I-->J["Source of truth: Payment Status Notification (NotificationURL | CallbackURL)"]
+    D["#4. Void/Refund?"]
 ```
