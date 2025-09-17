@@ -20,4 +20,6 @@ flowchart TB;
     C2-->D2[POST /RMS/API/capstxn/index.php];
     D2--Failure-->E2[What to do?];
     D2--Success-->F2[Successful Order];
+    E2-->E21[Webhook handler];
+    F2-->F21[Webhook handler];
 ```
