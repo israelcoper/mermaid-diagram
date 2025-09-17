@@ -15,6 +15,11 @@ flowchart TB;
     A1["#1. Place order"]-->B1[POST /api/v2/checkouts];
     B1-->C1[POST /api/v2/fiuu/transactions/pre-auth];
     C1-->D1[POST /RMS/API/Direct/1.4.0/index.php];
+    D1--Failure-->D11[Fail checkout];
+    D1--Success-->D12[Activate checkout];
+    D11-->D111[Webhook handler];
+    D12-->D121[Webhook handler];
+
     A2["#2. Complete Job order"]-->B2[POST /api/v1/job-orders/:id/complete];
     B2-->C2[POST /api/v2/fiuu/transactions/capture];
     C2-->D2[POST /RMS/API/capstxn/index.php];
@@ -41,6 +46,11 @@ flowchart TB;
     A1["#1. Place order"]-->B1[POST /api/v2/checkouts];
     B1-->C1[POST /api/v2/fiuu/transactions/pre-auth];
     C1-->D1[POST /RMS/API/Direct/1.4.0/index.php];
+    D1--Failure-->D11[Fail checkout];
+    D1--Success-->D12[Activate checkout];
+    D11-->D111[Webhook handler];
+    D12-->D121[Webhook handler];
+
     A2["#2. Complete Job order"]-->B2[POST /api/v1/job-orders/:id/complete];
     B2-->C2[POST /api/v2/fiuu/transactions/capture];
     C2-->D2[POST /RMS/API/capstxn/index.php];
@@ -73,6 +83,10 @@ flowchart TB;
     A1["#1. Place order"]-->B1[POST /api/v2/checkouts];
     B1-->C1[POST /api/v2/fiuu/transactions/pre-auth];
     C1-->D1[POST /RMS/API/Direct/1.4.0/index.php];
+    D1--Failure-->D11[Fail checkout];
+    D1--Success-->D12[Activate checkout];
+    D11-->D111[Webhook handler];
+    D12-->D121[Webhook handler];
 
     A2["#2. Shopping complete"]-->B2[PUT /api/v1/job-orders/:id];
     B2-->C2[POST /api/v2/fiuu/transactions/reversal];
