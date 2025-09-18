@@ -1,7 +1,7 @@
 # Scenario 1: Normal pre-auth/capture
 ```mermaid
 ---
-title:
+title: Normal pre-auth/capture
 ---
 flowchart TB;
     style B1 fill:#3cb371
@@ -44,7 +44,7 @@ flowchart TB;
 # Scenario 2: Pre-auth amount > Capture amount
 ```mermaid
 ---
-title:
+title: Pre-auth amount > Capture amount
 ---
 flowchart TB;
     style B1 fill:#3cb371
@@ -87,7 +87,7 @@ flowchart TB;
 # Scenario 3: Pre-auth amount < Capture amount (Exceeded amount)
 ```mermaid
 ---
-title:
+title: Pre-auth amount < Capture amount (Exceeded amount)
 ---
 flowchart TB;
     style B1 fill:#3cb371
