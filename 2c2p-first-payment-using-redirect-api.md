@@ -1,4 +1,4 @@
-# 2C2P Card Tokenization Flow (Redirect)
+# 2C2P First Payment (Redirect API)
 ```mermaid
 ---
 title:
